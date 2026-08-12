@@ -1,0 +1,73 @@
+backend:
+  name: github
+  repo: louisdjahyan-dotcom/bd-graphic-design
+  branch: main
+  base_url: https://bd-graphic-design.vercel.app
+  auth_endpoint: api/auth
+
+media_folder: "public/images"
+public_folder: "/images"
+
+locale: "fr"
+
+collections:
+  - name: "portfolio_items"
+    label: "MES CRÉATIONS (Portfolio prensipal)"
+    files:
+      - name: "items"
+        label: "Lis flyers yo"
+        file: "src/portfolioItems.json"
+        fields:
+          - label: "Flyers"
+            name: "items"
+            widget: "list"
+            summary: "{{title}} — {{category}}"
+            fields:
+              - { label: "ID (pa touche)", name: "id", widget: "number" }
+              - { label: "Tit pwojè a", name: "title", widget: "string" }
+              - label: "Kategori"
+                name: "category"
+                widget: "select"
+                options:
+                  ["Événements", "Musique", "Église", "Business", "Social Media", "Autres"]
+              - { label: "Ane", name: "year", widget: "string" }
+              - { label: "Kliyan", name: "client", widget: "string" }
+              - { label: "Imaj", name: "image", widget: "image" }
+              - { label: "Deskripsyon", name: "description", widget: "text" }
+
+  - name: "design_projects"
+    label: "MES DESIGNS EN ACTION (Galri filtre)"
+    files:
+      - name: "projects"
+        label: "Lis pwojè yo"
+        file: "src/portfolioProjects.json"
+        fields:
+          - label: "Pwojè"
+            name: "projects"
+            widget: "list"
+            summary: "{{title}} — {{category}}"
+            fields:
+              - { label: "ID (pa touche)", name: "id", widget: "number" }
+              - { label: "Tit pwojè a", name: "title", widget: "string" }
+              - label: "Kategori"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Flyers", value: "flyers" }
+                  - { label: "Social Media", value: "social-media" }
+                  - { label: "Branding", value: "branding" }
+                  - { label: "Invitations", value: "invitations" }
+              - { label: "Imaj", name: "image", widget: "image", required: false }
+              - { label: "Deskripsyon", name: "description", widget: "text" }
+
+  - name: "settings"
+    label: "Paramèt Kontak"
+    files:
+      - name: "contact"
+        label: "WhatsApp / Email / Rezo Sosyal"
+        file: "src/settings.json"
+        fields:
+          - { label: "Lyen WhatsApp", name: "whatsappLink", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Lyen Instagram", name: "instagram", widget: "string" }
+          - { label: "Lyen Facebook", name: "facebook", widget: "string" }
